@@ -5,7 +5,7 @@ DOCKER_COMPOSE := docker compose -f docker/docker-compose.yml
 #
 local: app
 	$(DOCKER_COMPOSE) up db -d --build
-	node app/index.js
+	@cd app && npm install && node index.js
 
 #
 # Docker commands

@@ -29,7 +29,7 @@ const dbConfig = {
 // Save the file to /usr/src/app/uploads in the container (mapped to ./uploads on host)
 const storage = multer.diskStorage({
 	destination: (req, file, cb) => {
-		cb(null, '/usr/src/app/uploads');
+		cb(null, process.env.UPLOAD_DIR || __dirname + '/uploads');
 	},
 	filename: (req, file, cb) => {
 		// Generate a unique name by appending a timestamp + original extension
@@ -122,6 +122,6 @@ app.post('/message', async (req, res) => {
 });
 
 // --- Start the Server ---
-app.listen(8080, () => {
+app.listen(process.env.PORT || 8080, () => {
 	console.log('Web server running on port 8080');
 });

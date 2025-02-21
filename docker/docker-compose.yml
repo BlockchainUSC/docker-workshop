@@ -5,6 +5,7 @@ services:
         dockerfile: docker/Dockerfile
     container_name: my_web_app
     environment:
+      UPLOAD_DIR: /usr/src/app/uploads
       DATABASE_HOST: my_db
       DATABASE_PORT: 5432
       DATABASE_USER: user
