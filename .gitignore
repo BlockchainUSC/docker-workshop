@@ -7,3 +7,4 @@ docker/uploads
 
 # Secrets
 .env*
+!app/.env.example
